@@ -1,0 +1,69 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by title"
+        [(ngModel)]="title"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchTitle()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Tutorials List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let tutorial of tutorials; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTutorial(tutorial, i)"
+      >
+        {{ tutorial.title }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <app-tutorial-details
+      [viewMode]="true"
+      [currentTutorial]="currentTutorial"
+    ></app-tutorial-details>
+  </div>
+
+  <h3>
+    Data retrieved by Other team member service - Country Service - Canada
+  </h3>
+  <h6> http://worldinformationapienv.eba-zcmupdkn.us-east-1.elasticbeanstalk.com/country-info?country=Canada </h6>
+  <button
+  class="btn btn-outline-secondary"
+  type="button"
+  (click)="searchTitle()"
+>
+  Country - Canada
+</button>
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <div class="input-group-append">
+      
+        <ul>
+          <li>area:9984670.0</li>
+            <li>capital:Ottawa</li>
+            <li>name:Canada</li>
+            <li>region:America</li>
+            <li>subregion":"North Americ</li>
+        </ul>
+      </div>
+    </div>
+</div>
