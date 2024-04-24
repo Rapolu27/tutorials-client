@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tutorial } from '../models/tutorial.model';
-import { Country } from '../models/country.model';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
-const secondBase = 'http://worldinformationapienv.eba-zcmupdkn.us-east-1.elasticbeanstalk.com/country-info'
+const baseUrl = 'http://3.250.189.231:8080/api/tutorials';
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,13 +17,8 @@ export class TutorialService {
   }
 
   get(id: any): Observable<Tutorial> {
-    return this.http.get<Tutorial>(`${secondBase}?${id}`);
+    return this.http.get<Tutorial>(`${baseUrl}/${id}`);
   }
-
-  getCountry(id: any): Observable<Country> {
-    return this.http.get<Country>(`${baseUrl}?country=canada`);
-  }
-
 
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);
@@ -44,5 +39,4 @@ export class TutorialService {
   findByTitle(title: any): Observable<Tutorial[]> {
     return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
   }
-
 }

@@ -41,6 +41,7 @@ export class TutorialDetailsComponent {
       error: (e) => console.error(e)
     });
   }
+  
 
   updatePublished(status: boolean): void {
     const data = {

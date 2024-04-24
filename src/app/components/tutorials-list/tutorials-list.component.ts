@@ -63,18 +63,5 @@ export class TutorialsListComponent {
     });
   }
 
-  searchCountry(): void {
-    this.currentTutorial = {};
-    this.currentIndex = -1;
-
-    this.tutorialService.findByTitle(this.title).subscribe({
-      next: (data) => {
-        this.tutorials = data;
-        console.log(data);
-      },
-      error: (e) => console.error(e)
-    });
-  }
-
   
 }
